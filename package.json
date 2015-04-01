@@ -1,18 +1,18 @@
 {
-  "name": "stink",
-  "description": "Stinky log emissions",
+  "name": "smell",
+  "description": "Smelly log emissions",
   "author": "Eirik Albrigtsen <analsandblaster@gmail.com>",
   "version": "1.0.0",
   "repository": {
     "type": "git",
-    "url": "clux/stink"
+    "url": "clux/smell"
   },
   "keywords": [],
-  "main": "stink.js",
+  "main": "smell.js",
   "scripts": {
     "test": "nodeunit --reporter=verbose test/*.js",
-    "precoverage": "jscoverage stink.js",
-    "coverage": "STINK_COV=1 nodeunit --reporter=lcov test/*.js",
+    "precoverage": "jscoverage smell.js",
+    "coverage": "SMELL_COV=1 nodeunit --reporter=lcov test/*.js",
     "coveralls": "npm run coverage | coveralls"
   },
   "dependencies": {},
@@ -22,7 +22,7 @@
     "nodeunit": "^0.9.1"
   },
   "bugs": {
-    "url": "http://github.com/clux/stink/issues"
+    "url": "http://github.com/clux/smell/issues"
   },
   "license": "MIT"
 }

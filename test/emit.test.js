@@ -1,4 +1,4 @@
-var stink = require(process.env.STINK_COV ? '../stink-cov.js' : '../')();
+var smell = require(process.env.SMELL_COV ? '../smell-cov.js' : '../')();
 
 exports.emit = function (t) {
   t.expect(3);
@@ -10,32 +10,32 @@ exports.emit = function (t) {
     }
   };
 
-  stink.on('info', function (msg) {
+  smell.on('info', function (msg) {
     t.equal(msg, 'hi there 5', 'got info emit');
     complete();
   });
-  stink.info('hi', 'there', 5);
+  smell.info('hi', 'there', 5);
 
-  stink.on('warn', function (msg) {
+  smell.on('warn', function (msg) {
     t.equal(msg, 'woot { o: 5 }', 'got warn emit');
     complete();
   });
-  stink.warn('woot', {o: 5});
+  smell.warn('woot', {o: 5});
 
-  stink.on('error', function (msg) {
+  smell.on('error', function (msg) {
     t.equal(msg, "err", "got error emit");
     complete();
   });
-  stink.error('err');
+  smell.error('err');
 };
 
 exports.console = function (t) {
   // just check that this logs..
-  stink.on('info', console.log);
-  stink.on('warn', console.warn);
-  stink.on('error', console.error);
-  stink.info('hi', 'there', 5);
-  stink.warn('woot', {o: 5});
-  stink.error('err');
+  smell.on('info', console.log);
+  smell.on('warn', console.warn);
+  smell.on('error', console.error);
+  smell.info('hi', 'there', 5);
+  smell.warn('woot', {o: 5});
+  smell.error('err');
   t.done();
 };
