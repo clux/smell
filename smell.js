@@ -2,6 +2,9 @@ var EE = require('events').EventEmitter;
 var format = require('util').format;
 
 function Smell() {
+  if (!(this instanceof Smell)) {
+    return new Smell();
+  }
   EE.call(this);
 }
 Smell.prototype = new EE();
@@ -19,6 +22,4 @@ Smell.prototype.error = function () {
   this.emit('err', msg);
 };
 
-module.exports = function () {
-  return new Smell();
-};
+module.exports = Smell;

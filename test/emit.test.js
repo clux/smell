@@ -35,7 +35,7 @@ exports.console = function (t) {
   // just check that this logs..
   smell.on('info', console.log);
   smell.on('warn', console.warn);
-  smell.on('error', console.error);
+  smell.on('err', console.error);
   smell.info('hi', 'there', 5);
   smell.warn('woot', {o: 5});
   smell.error('err');
