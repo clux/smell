@@ -16,7 +16,7 @@ Smell.prototype.warn = function () {
 };
 Smell.prototype.error = function () {
   var msg = format.apply(null, arguments);
-  this.emit('error', msg);
+  this.emit('err', msg);
 };
 
 module.exports = function () {

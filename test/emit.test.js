@@ -22,11 +22,13 @@ exports.emit = function (t) {
   });
   smell.warn('woot', {o: 5});
 
-  smell.on('error', function (msg) {
-    t.equal(msg, "err", "got error emit");
+  smell.error('err'); // this should NOT throw
+
+  smell.on('err', function (msg) {
+    t.equal(msg, "err2", "got error emit");
     complete();
   });
-  smell.error('err');
+  smell.error('err2'); // this should now be caught
 };
 
 exports.console = function (t) {

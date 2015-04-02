@@ -4,7 +4,7 @@
 [![dependency status](https://david-dm.org/clux/smell.svg)](https://david-dm.org/clux/smell)
 [![coverage status](http://img.shields.io/coveralls/clux/smell.svg)](https://coveralls.io/r/clux/smell)
 
-The smelly place where logs are emitted. Subscribe and get strings from `info`, `warn` and `error` events.
+The smelly place where logs are emitted. Subscribe and get strings from `info`, `warn` and `err` events. (Not using `error` since this bubbles up to an uncaughtError)
 
 ## Basic Idea
 Libraries should never rely on full logging libraries - how to log is an app decision. Thus, libraries can add this .._emission_, expose it, and hope someone else deals with it.
@@ -25,7 +25,7 @@ exports.log = log;
 var em = require('some-module');
 em.on('info', console.log);
 em.on('warn', console.warn);
-em.on('error', console.error);
+em.on('err', console.error);
 ```
 
 ## License
