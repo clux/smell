@@ -1,5 +1,4 @@
 var EE = require('events').EventEmitter;
-var util = require('util');
 var format = require('util').format;
 
 function Smell() {
@@ -8,7 +7,7 @@ function Smell() {
   }
   EE.call(this);
 }
-util.inherits(Smell, EE);
+Smell.prototype = Object.create(EE.prototype);
 
 Smell.prototype.info = function () {
   var msg = format.apply(null, arguments);
