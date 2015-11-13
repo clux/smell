@@ -2,12 +2,16 @@
   "name": "smell",
   "description": "Smelly log emissions",
   "author": "Eirik Albrigtsen <analsandblaster@gmail.com>",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "repository": {
     "type": "git",
     "url": "clux/smell"
   },
-  "keywords": ["log", "event","emitter"],
+  "keywords": [
+    "log",
+    "event",
+    "emitter"
+  ],
   "main": "smell.js",
   "scripts": {
     "test": "nodeunit --reporter=verbose test/*.js",
