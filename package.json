@@ -7,17 +7,15 @@
     "type": "git",
     "url": "clux/smell"
   },
-  "keywords": [],
+  "keywords": ["log", "event","emitter"],
   "main": "smell.js",
   "scripts": {
     "test": "nodeunit --reporter=verbose test/*.js",
     "precoverage": "jscoverage smell.js",
-    "coverage": "SMELL_COV=1 nodeunit --reporter=lcov test/*.js",
-    "coveralls": "npm run coverage | coveralls"
+    "coverage": "SMELL_COV=1 nodeunit --reporter=lcov test/*.js"
   },
   "dependencies": {},
   "devDependencies": {
-    "coveralls": "^2.11.2",
     "jscoverage": "^0.5.9",
     "nodeunit": "^0.9.1"
   },
