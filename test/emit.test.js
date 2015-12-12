@@ -1,37 +1,28 @@
-var smell = require(process.env.SMELL_COV ? '../smell-cov.js' : '../')();
+var smell = require('..')();
+var test = require('bandage');
 
-exports.emit = function (t) {
-  t.expect(3);
-  var completed = 0;
-  var complete = function () {
-    completed += 1;
-    if (completed === 3) {
-      t.done();
-    }
-  };
+test('emit', function *(t) {
+  t.plan(3);
 
   smell.on('info', function (msg) {
     t.equal(msg, 'hi there 5', 'got info emit');
-    complete();
   });
   smell.info('hi', 'there', 5);
 
   smell.on('warn', function (msg) {
     t.equal(msg, 'woot { o: 5 }', 'got warn emit');
-    complete();
   });
   smell.warn('woot', {o: 5});
 
   smell.error('err'); // this should NOT throw
 
   smell.on('err', function (msg) {
-    t.equal(msg, "err2", "got error emit");
-    complete();
+    t.equal(msg, 'err2', 'got error emit');
   });
   smell.error('err2'); // this should now be caught
-};
+});
 
-exports.console = function (t) {
+test('console', function *(t) {
   // just check that this logs..
   smell.on('info', console.log);
   smell.on('warn', console.warn);
@@ -39,5 +30,5 @@ exports.console = function (t) {
   smell.info('hi', 'there', 5);
   smell.warn('woot', {o: 5});
   smell.error('err');
-  t.done();
-};
+  t.pass('wrote to console')
+});
